@@ -52,6 +52,13 @@
           "quiet": true
         }
       }
+    },
+    "tailwind": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx tailwindcss -i ./.storybook/tailwind-input.css -o ./.storybook/tailwind-output.css --watch",
+        "cwd": "libs/ui"
+      }
     }
   }
 }

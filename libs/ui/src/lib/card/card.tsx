@@ -1,12 +1,18 @@
-import styles from './card.module.scss';
+import { ReactNode } from "react";
 
-/* eslint-disable-next-line */
-export interface CardProps {}
+export interface CardProps {
+  children: ReactNode,
+  className: string,
+  clickable: boolean
+}
 
 export function Card(props: CardProps) {
+
+  const { clickable, className, children } = props;
+
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Card!</h1>
+    <div className={`border rounded-md p-4 ${className} ${clickable ? 'cursor-pointer hover:shadow-md' : ''}`}>
+      {children}
     </div>
   );
 }
