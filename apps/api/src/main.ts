@@ -1,21 +1,22 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
+import * as dotenv from 'dotenv';
 import express from 'express';
-import * as path from 'path';
+import { router as placesRouter } from './routes/places.routes';
+import { router as weatherRouter } from './routes/weather.routes';
+dotenv.config();
 
 const app = express();
 
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });
+app.use((req, res, next) => {
+  console.log(req.path, req.query, req.method);
+  next();
 });
 
-const port = process.env.PORT || 3333;
+app.use('/api/places', placesRouter);
+app.use('/api/weather', weatherRouter);
+
+const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  console.log(`Listening at http://localhost:${port}`);
 });
 server.on('error', console.error);
