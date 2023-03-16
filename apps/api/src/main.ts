@@ -1,7 +1,6 @@
+import { placesRouter, weatherRouter } from '@rain-or-shine/api-app';
 import * as dotenv from 'dotenv';
 import express from 'express';
-import { router as placesRouter } from './routes/places.routes';
-import { router as weatherRouter } from './routes/weather.routes';
 dotenv.config();
 
 const app = express();

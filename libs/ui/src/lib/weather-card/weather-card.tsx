@@ -1,13 +1,18 @@
-import styles from './weather-card.module.scss';
+import { CurrentWeather } from '@rain-or-shine/types';
+import Card from '../card/card';
 
-/* eslint-disable-next-line */
-export interface WeatherCardProps {}
+export interface WeatherCardProps {
+  weather: CurrentWeather
+}
 
 export function WeatherCard(props: WeatherCardProps) {
+
+  const { weather } = props;
+
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to WeatherCard!</h1>
-    </div>
+    <Card className='fit-content'>
+      <div className='lg'>{weather.temp}</div>
+    </Card>
   );
 }
 

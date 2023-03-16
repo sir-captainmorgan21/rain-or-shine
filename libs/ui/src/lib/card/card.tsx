@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 export interface CardProps {
   children: ReactNode,
   className: string,
-  clickable: boolean
+  clickable?: boolean
 }
 
 export function Card(props: CardProps) {

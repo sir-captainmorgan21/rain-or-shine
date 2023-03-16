@@ -1,6 +1,6 @@
 import express from 'express';
 import * as weatherController from '../controllers/weather.controller';
 
-export const router = express.Router();
+export const weatherRouter = express.Router();
 
-router.get('/', weatherController.getWeather);
+weatherRouter.get('/', weatherController.getWeather);

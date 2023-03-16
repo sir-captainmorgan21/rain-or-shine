@@ -1,5 +1,5 @@
+import { CurrentWeather } from '@rain-or-shine/types';
 import { openWeatherProvider } from '../providers/open-weather.provider';
-import { CurrentWeather } from '../types';
 
 const getWeatherByLatLong = async (lat: number, lon: number): Promise<CurrentWeather> | null => {
 

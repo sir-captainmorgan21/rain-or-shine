@@ -1,7 +1,7 @@
 import { AddressGeometry, PlaceData } from '@googlemaps/google-maps-services-js';
+import { CurrentWeather } from "@rain-or-shine/types";
 import { Request, Response } from 'express';
 import { placesService, weatherService } from '../services';
-import { CurrentWeather } from "../types";
 import { weatherController } from './weather.controller';
 
 describe('weatherController', () => {
