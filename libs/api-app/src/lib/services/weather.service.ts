@@ -15,7 +15,7 @@ const getWeatherByLatLong = async (lat: number, lon: number): Promise<CurrentWea
     temp: openWeatherResponse.main.temp,
     feelsLike: openWeatherResponse.main.feels_like,
     windSpeed: openWeatherResponse.wind.speed,
-    weather: openWeatherResponse.weather
+    weather: openWeatherResponse.weather[0]
   }
 
   return currentWeather;

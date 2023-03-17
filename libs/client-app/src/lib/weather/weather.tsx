@@ -25,7 +25,7 @@ export function Weather() {
   }
 
   const debouncedInputHandler = useMemo(() => {
-    return _.debounce(inputHandler, 200)
+    return _.debounce(inputHandler, 300)
   }, []);
 
   const placeClickHandler = (place: SearchPlace) => {
@@ -48,12 +48,14 @@ export function Weather() {
 
   return (
     <>
-      <Card>
+      <Card classes="mb-4">
         <div className='flex items-center'>
           <div className='mr-2'>{selectedPlace?.description || 'Select a Location'}</div>
           <button className='bg-green-500 rounded-md p-2 hover:bg-green-700' onClick={toggleSearchModal}><SearchIcon size={20}/></button>
         </div>
       </Card>
+      {currentWeather && <WeatherCard weather={currentWeather} loading={true}></WeatherCard>}
+
       <Modal open={showSearchModal} onClose={toggleSearchModal} heading='Choose Location'>
         <div className='rounded-md border border-gray-300 focus-within:border-green-500 flex flex-col p-2'>
           <label htmlFor='search' className='text-xs'>Add City or Zip Code</label>
@@ -75,7 +77,6 @@ export function Weather() {
           </ul>
         }
       </Modal>
-      {currentWeather && <WeatherCard weather={currentWeather} loading={true}></WeatherCard>}
     </>
   );
 }
