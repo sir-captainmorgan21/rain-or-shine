@@ -1,4 +1,6 @@
 # RainOrShine
+A React/Express application that communicates with Open Weather and Google Places to present
+the current weather
 
 ## Serve client app
 `nx serve client`
