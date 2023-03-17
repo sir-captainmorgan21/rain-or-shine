@@ -1,6 +1,7 @@
+import { SearchPlace } from "@rain-or-shine/types";
 import { Request, Response } from "express";
 import { placesService } from '../services';
-import { Collection, SearchPlace } from "../types";
+import { Collection } from "../types";
 
 export const getPlaces = async (req: Request, res: Response) => {
 

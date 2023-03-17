@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export interface CardProps {
   children: ReactNode,
-  classes: string,
+  classes?: string,
   clickable?: boolean,
   loading?: boolean
 }
@@ -14,7 +14,7 @@ export function Card(props: CardProps) {
   return (
     <div 
       className={
-        `border rounded-md p-4 
+        `border rounded-md p-4 bg-white
         ${classes} ${clickable && !loading && 'cursor-pointer hover:shadow-md'}
         ${loading && 'animate-pulse bg-gray-300'}`
       }

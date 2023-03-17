@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@rain-or-shine/api-app": ["libs/api-app/src/index.ts"],
+      "@rain-or-shine/client-app": ["libs/client-app/src/index.ts"],
       "@rain-or-shine/types": ["libs/types/src/index.ts"],
       "@rain-or-shine/ui": ["libs/ui/src/index.ts"]
     }

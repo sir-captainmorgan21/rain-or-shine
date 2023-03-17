@@ -3,7 +3,7 @@ import { MouseEvent, ReactNode, useRef } from 'react';
 export interface ModalProps {
   open: boolean,
   onClose: () => void,
-  closeOnBackDropClick: boolean,
+  closeOnBackDropClick?: boolean,
   heading: string,
   children: ReactNode
 }
@@ -31,7 +31,7 @@ export function Modal(props: ModalProps) {
       {
         open &&
         <div 
-          className='absolute w-screen h-screen flex justify-center bg-gray-900/30 items-center'
+          className='absolute w-screen h-screen flex justify-center bg-gray-900/30 items-center top-0 left-0'
           onClick={(event) => handleBackDropClick(event)}
         >
           <div 

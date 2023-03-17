@@ -1,5 +1,5 @@
 import { Client, PlaceAutocompleteResult, PlaceAutocompleteType, PlaceData } from "@googlemaps/google-maps-services-js";
-import { SearchPlace } from "../types";
+import { SearchPlace } from "@rain-or-shine/types";
 
 export const client = new Client();
 const googleAPIKey = process.env.GOOGLE_API_KEY;

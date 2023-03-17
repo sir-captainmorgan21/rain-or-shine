@@ -11,7 +11,7 @@ export function WeatherCard(props: WeatherCardProps) {
   const { weather } = props;
 
   return (
-    <Card className='flex'>
+    <Card classes='flex'>
       <div className='flex-1'>
         <div className='text-4xl'>{weather.temp}&deg;</div>
         <div className='text-md mb-4'>
