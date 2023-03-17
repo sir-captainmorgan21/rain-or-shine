@@ -2,17 +2,24 @@ import { ReactNode } from "react";
 
 export interface CardProps {
   children: ReactNode,
-  className: string,
-  clickable?: boolean
+  classes: string,
+  clickable?: boolean,
+  loading?: boolean
 }
 
 export function Card(props: CardProps) {
 
-  const { clickable, className, children } = props;
+  const { clickable, classes, children, loading } = props;
 
   return (
-    <div className={`border rounded-md p-4 ${className} ${clickable ? 'cursor-pointer hover:shadow-md' : ''}`}>
-      {children}
+    <div 
+      className={
+        `border rounded-md p-4 
+        ${classes} ${clickable && !loading && 'cursor-pointer hover:shadow-md'}
+        ${loading && 'animate-pulse bg-gray-300'}`
+      }
+    >
+      {!loading && children}
     </div>
   );
 }

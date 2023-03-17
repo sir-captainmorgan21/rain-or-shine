@@ -17,12 +17,19 @@ BasicUsage.args = {
 export const ExplicitSize = Template.bind({});
 ExplicitSize.args = {
   children: <div className='border border-dashed h-full border-green-600 rounded-sm'></div>,
-  className: 'w-[200px] h-[200px]'
+  classes: 'w-[200px] h-[200px]'
 }
 
 export const Clickable = Template.bind({});
 Clickable.args = {
   children: <div className='border border-dashed h-full border-green-600 rounded-sm'></div>,
-  className: 'w-[200px] h-[200px]',
+  classes: 'w-[200px] h-[200px]',
   clickable: true
+}
+
+export const Loading = Template.bind({});
+Loading.args = {
+  children: <div className='border border-dashed h-full border-green-600 rounded-sm'></div>,
+  classes: 'w-[200px] h-[200px]',
+  loading: true
 }

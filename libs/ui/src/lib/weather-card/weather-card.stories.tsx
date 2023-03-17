@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react';
+import type { ComponentStory, Meta } from '@storybook/react';
 import { WeatherCard } from './weather-card';
 
 const Story: Meta<typeof WeatherCard> = {
@@ -7,6 +7,19 @@ const Story: Meta<typeof WeatherCard> = {
 };
 export default Story;
 
-export const Primary = {
-  args: {},
-};
+const Template: ComponentStory<typeof WeatherCard> = (args) => <div className='w-[300px] h-[200px]'><WeatherCard {...args}/></div>;
+
+export const BasicUsage = Template.bind({});
+BasicUsage.args = {
+  weather: {
+    temp: 36,
+    feelsLike: 30,
+    windSpeed: 10,
+    weather: {
+      id: 'test',
+      icon: '09n',
+      description: 'Light Rain',
+      main: 'Rain'
+    }
+  }
+}
