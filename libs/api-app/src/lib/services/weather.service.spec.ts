@@ -12,7 +12,7 @@ describe('weatherService', () => {
         wind: {
           speed: 1
         },
-        weather: {}
+        weather: [{}]
       }
       jest.spyOn(openWeatherProvider, 'getWeather').mockResolvedValue(mockOpenWeatherResponse);
   
@@ -21,7 +21,7 @@ describe('weatherService', () => {
         temp: mockOpenWeatherResponse.main.temp,
         feelsLike: mockOpenWeatherResponse.main.feels_like,
         windSpeed: mockOpenWeatherResponse.wind.speed,
-        weather: mockOpenWeatherResponse.weather
+        weather: mockOpenWeatherResponse.weather[0]
       });
     });
 
