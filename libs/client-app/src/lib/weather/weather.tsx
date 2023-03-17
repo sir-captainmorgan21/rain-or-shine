@@ -2,6 +2,7 @@ import { CurrentWeather, SearchPlace } from "@rain-or-shine/types";
 import { Card, Modal, SearchIcon, WeatherCard } from "@rain-or-shine/ui";
 import _ from 'lodash';
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import { useErrorHandler } from "react-error-boundary";
 
 export function Weather() {
 
@@ -11,6 +12,8 @@ export function Weather() {
   const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(null);
   const [loadingCurrentWeather, setLoadingCurrentWeather] = useState<boolean>(false);
 
+  const handleError = useErrorHandler();
+
   const toggleSearchModal = () => {
     setPlaceSearchResults([]);
     setShowSearchModal(!showSearchModal);
@@ -19,11 +22,12 @@ export function Weather() {
   const inputHandler = (event: FormEvent<HTMLInputElement>) => {
     fetch(`/api/places?search=${(event.target as HTMLInputElement).value}`, {
       method: 'GET'
-    }).then(async (res) => {
-      const json = await res.json();
-      setPlaceSearchResults(json.list);
-    })
+    }).then(
+      async (res) => res.json(),
+      error => handleError(error)
+    ).then((json) => setPlaceSearchResults(json.list))
   }
+  
 
   const debouncedInputHandler = useMemo(() => {
     return _.debounce(inputHandler, 300)
@@ -41,13 +45,15 @@ export function Weather() {
       setLoadingCurrentWeather(true);
       fetch(`/api/weather?placeId=${selectedPlace.id}`, {
         method: 'GET'
-      }).then(async (res) => {
-        const json = await res.json();
+      }).then(
+        async (res) => res.json(),
+        error => handleError(error)
+      ).then((json) => {
         setCurrentWeather(json);
         setLoadingCurrentWeather(false);
-      })
+      });
     }
-  }, [selectedPlace]);
+  }, [selectedPlace, handleError]);
 
   return (
     <div className='px-2'>
