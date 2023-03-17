@@ -16,7 +16,7 @@ export function Card(props: CardProps) {
       className={
         `border rounded-md p-4 bg-white
         ${classes} ${clickable && !loading && 'cursor-pointer hover:shadow-md'}
-        ${loading && 'animate-pulse bg-gray-300'}`
+        ${loading && 'animate-pulse'}`
       }
     >
       {!loading && children}
