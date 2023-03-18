@@ -1,0 +1,12 @@
+name: test-and-build
+run-name: Test and build api and client apps
+on: [push]
+jobs:
+  test-and-build-api-and-client:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm ci
+      - run: nx test api
+      - run: nx test client
+      - run: nx build api
+      - run: nx build client
