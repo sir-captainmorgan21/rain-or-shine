@@ -17,7 +17,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm install nx -g
-      - run: nx test api
-      - run: nx test client
+      - run: nx run-many --all --target=test
       - run: nx build api
       - run: nx build client
