@@ -67,7 +67,7 @@ export function Weather() {
 
       <Modal open={showSearchModal} onClose={toggleSearchModal} heading='Choose Location'>
         <div className='rounded-md border border-gray-300 focus-within:border-green-500 flex flex-col p-2'>
-          <label htmlFor='search' className='text-xs'>Add City or Zip Code</label>
+          <label htmlFor='search' className='text-xs'>Add City</label>
           <input onInput={debouncedInputHandler} name='search' className='focus-visible:outline-none'></input>
         </div>
         <hr className='my-3' />
