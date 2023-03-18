@@ -1,5 +1,4 @@
 name: test-and-build
-run-name: Test and build api and client apps
 on: [push]
 jobs:
   test-and-build-api-and-client:
@@ -17,6 +16,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
+      - run: npm install nx -g
       - run: nx test api
       - run: nx test client
       - run: nx build api
